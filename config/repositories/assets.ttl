@@ -1,6 +1,7 @@
 @prefix search: <http://www.metaphacts.com/ontologies/platform/service/search/> .
 @prefix pathfinder: <http://www.metaphacts.com/ontologies/platform/service/pathfinder/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix http: <http://www.openrdf.org/config/repository/http#> .
 @prefix config: <tag:rdf4j.org,2023:config/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mph: <http://www.metaphacts.com/ontologies/platform/repository#> .
@@ -8,10 +9,10 @@
 
 [] a config:Repository;
   config:rep.id "assets";
-  rdfs:label "assetsrepository for platform.";
+  rdfs:label "GraphDB repository";
   config:rep.impl [
-      config:rep.type "openrdf:SailRepository";
-      config:sail.impl [
-          config:sail.type "openrdf:NativeStore"
-        ]
+      config:rep.type "metaphactory:GraphDBRepository";
+      config:http.url <http://0ca5eba5b206:7200/repositories/metaphactory>;
+      mph:username "admin";
+      mph:password "admin"
     ] .
